@@ -9,6 +9,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -26,25 +27,30 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     //noinspection GradleCompatible
     implementation 'com.android.support:appcompat-v7:26.1.0'
-    compile 'com.android.support:design:26.+'
+    implementation 'com.android.support:design:26.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     testImplementation 'junit:junit:4.12'
+
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
+
+
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 
 
-    compile 'com.afollestad.material-dialogs:core:0.9.6.0'
-    compile 'com.github.angads25:filepicker:1.1.1'
-    compile 'pub.devrel:easypermissions:0.3.0'
+    implementation 'com.afollestad.material-dialogs:core:0.9.6.0'
+
+    implementation 'com.github.angads25:filepicker:1.1.1'
+
+    implementation 'pub.devrel:easypermissions:1.0.1'
 
     implementation 'com.google.android.gms:play-services:11.6.2'
 
-    compile('com.google.api-client:google-api-client-android:1.23.0') {
+    implementation('com.google.api-client:google-api-client-android:1.23.0') {
         exclude group: 'org.apache.httpcomponents'
     }
-    compile 'com.google.android.gms:play-services-auth:11.4.2'
+    implementation 'com.google.android.gms:play-services-auth:11.6.2'
 
-    compile('com.google.apis:google-api-services-drive:v2-rev287-1.23.0') {
+    implementation('com.google.apis:google-api-services-drive:v2-rev287-1.23.0') {
         exclude group: 'org.apache.httpcomponents'
     }
 
