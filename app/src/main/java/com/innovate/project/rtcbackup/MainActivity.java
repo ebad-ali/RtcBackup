@@ -41,6 +41,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 
+
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
@@ -60,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
     private GoogleSignInClient mGoogleSignInClient;
     private DriveClient mDriveClient;
     private DriveResourceClient mDriveResourceClient;
+
 
 
     @Override
@@ -126,6 +128,7 @@ public class MainActivity extends AppCompatActivity {
                 //files is the array of the paths of files selected by the Application User.
                 Log.e(TAG, "" + files[0]);
 
+
                 if (files.length != 0) {
                     videoUri = Uri.parse(files[0]);
                 }
@@ -170,7 +173,7 @@ public class MainActivity extends AppCompatActivity {
 
                         // Upload to google drive here.
 
-                        Log.e(TAG,"upload to google drive");
+                        Log.e(TAG, "upload to google drive");
                         signIn();
 
                     }
@@ -182,7 +185,7 @@ public class MainActivity extends AppCompatActivity {
                         // TODO
 
                         //Play video here
-                        Log.e(TAG,"play video");
+                        Log.e(TAG, "play video");
 
                         watchVideo(uri);
                     }
@@ -214,14 +217,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    /** Start sign in activity. */
+    /**
+     * Start sign in activity.
+     */
     private void signIn() {
         Log.i(TAG, "Start sign in");
         mGoogleSignInClient = buildGoogleSignInClient();
         startActivityForResult(mGoogleSignInClient.getSignInIntent(), REQUEST_CODE_SIGN_IN);
     }
 
-    /** Build a Google SignIn client. */
+    /**
+     * Build a Google SignIn client.
+     */
     private GoogleSignInClient buildGoogleSignInClient() {
         GoogleSignInOptions signInOptions =
                 new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -253,6 +260,7 @@ public class MainActivity extends AppCompatActivity {
                         });
     }
 
+
     private Task<Void> createFileIntentSender(DriveContents driveContents, Uri uri) {
         Log.i(TAG, "New contents created.");
         // Get an output stream for the contents.
@@ -272,12 +280,7 @@ public class MainActivity extends AppCompatActivity {
             byte[] photoBytes = baos.toByteArray();
             outputStream.write(photoBytes);
 
-            /*
-            outputStream.close();
-            outputStream = null;
-            fis.close();
-            fis = null;
-*/
+
         } catch (IOException e) {
             Log.w(TAG, "Unable to write file contents.", e);
         }
@@ -297,6 +300,7 @@ public class MainActivity extends AppCompatActivity {
                         .setInitialDriveContents(driveContents)
                         .build();
 
+
         return mDriveClient
                 .newCreateFileActivityIntentSender(createFileActivityOptions)
                 .continueWith(
@@ -307,8 +311,6 @@ public class MainActivity extends AppCompatActivity {
                                 return null;
                             }
                         });
-
-
     }
 
 
@@ -333,22 +335,6 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     @Override
