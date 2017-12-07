@@ -11,9 +11,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/drive"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/drive"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
@@ -34,12 +34,11 @@
 
 
         <activity
-            android:name=".MainActivitys"
+            android:name=".UploadVideo"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme"
             tools:targetApi="jelly_bean" />
-
     </application>
 
 

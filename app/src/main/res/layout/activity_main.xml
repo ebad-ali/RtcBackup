@@ -13,11 +13,12 @@
 
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:gravity="center_horizontal"
-        android:text="Rtc Backup"
+        android:text="@string/rtc_backup"
         android:textColor="@color/white"
         android:textSize="28sp"
         android:textStyle="bold" />
@@ -27,9 +28,18 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_centerVertical="true"
-        android:text="View Saved Videos"
+        android:text="@string/view_saved_videos"
         android:textColor="@color/white"
         android:textSize="18sp"
         app:backgroundTint="@color/colorAccent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="45dp"
+        app:srcCompat="@drawable/cloud" />
 
 </RelativeLayout>
