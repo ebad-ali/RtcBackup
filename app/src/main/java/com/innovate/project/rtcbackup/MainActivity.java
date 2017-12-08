@@ -53,12 +53,10 @@ public class MainActivity extends AppCompatActivity {
     // A view of dialog that ask to choose between upload or watch video
     MaterialDialog chooseDialog;
 
-    Uri tempUri = Uri.parse("/storage/emulated/0/Recorded Videos/Thu Dec 07 03:02:44 GMT+05:00 2017.mp4");
 
     /**
      * Called when the activity is first created.
      */
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
         Fabric.with(this, new Crashlytics());
 
-        // A function to intialize button with the above viewSavedVideosButton
+        // A function to initialize button with the above viewSavedVideosButton
         setUpUI();
     }
 
@@ -278,7 +276,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
+    /*
+    * This function show a snackbar if there is no internet connection.
+    */
     void showSnackBar() {
         Snackbar snackbar = Snackbar
                 .make(findViewById(android.R.id.content), "No internet connection.", Snackbar.LENGTH_LONG);
@@ -321,6 +321,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
+    /**
+     * This function check the current state of the application whether it is online
+     *  or offline
+     */
     private boolean isDeviceOnline() {
         ConnectivityManager connMgr =
                 (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
