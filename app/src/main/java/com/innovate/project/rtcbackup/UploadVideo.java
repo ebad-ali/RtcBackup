@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.crashlytics.android.Crashlytics;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.api.client.extensions.android.http.AndroidHttp;
@@ -41,6 +42,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
+import io.fabric.sdk.android.Fabric;
 import pub.devrel.easypermissions.AfterPermissionGranted;
 import pub.devrel.easypermissions.EasyPermissions;
 
@@ -81,6 +83,8 @@ public class UploadVideo extends AppCompatActivity implements EasyPermissions.Pe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Fabric.with(this, new Crashlytics());
 
         // used to get the Uri/path of the video you selected and the value of path you passed in MainActivity
         // is get by using getExtras() function and saved in a string which then initialized into a String.
@@ -430,6 +434,7 @@ public class UploadVideo extends AppCompatActivity implements EasyPermissions.Pe
 
                 mLastError = e;
                 cancel(true);
+
                 e.printStackTrace();
             }
 
@@ -491,7 +496,8 @@ public class UploadVideo extends AppCompatActivity implements EasyPermissions.Pe
                         UploadVideo.REQUEST_AUTHORIZATION);
             }
             else {
-                Toast.makeText(UploadVideo.this, "Some error occurred !", Toast.LENGTH_LONG).show();
+                Toast.makeText(UploadVideo.this, "Network error occurred !", Toast.LENGTH_LONG).show();
+                finish();
             }
         }
     }

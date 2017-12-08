@@ -22,12 +22,15 @@ import android.widget.Toast;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.crashlytics.android.Crashlytics;
 import com.github.angads25.filepicker.controller.DialogSelectionListener;
 import com.github.angads25.filepicker.model.DialogConfigs;
 import com.github.angads25.filepicker.model.DialogProperties;
 import com.github.angads25.filepicker.view.FilePickerDialog;
 
 import java.io.File;
+
+import io.fabric.sdk.android.Fabric;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -50,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
     // A view of dialog that ask to choose between upload or watch video
     MaterialDialog chooseDialog;
 
+    Uri tempUri = Uri.parse("/storage/emulated/0/Recorded Videos/Thu Dec 07 03:02:44 GMT+05:00 2017.mp4");
 
     /**
      * Called when the activity is first created.
@@ -61,6 +65,8 @@ public class MainActivity extends AppCompatActivity {
 
         //Connect the java class with the UI file
         setContentView(R.layout.activity_main);
+
+        Fabric.with(this, new Crashlytics());
 
         // A function to intialize button with the above viewSavedVideosButton
         setUpUI();
@@ -226,6 +232,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(MaterialDialog dialog, DialogAction which) {
 
                         Log.e(TAG, "play video");
+
 
                         //call play video function here and pass the uri to it.
                         watchVideo(uri);
