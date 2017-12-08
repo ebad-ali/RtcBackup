@@ -17,11 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <!--
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
--->
 
         <meta-data
             android:name="firebase_crashlytics_collection_enabled"
@@ -44,6 +42,15 @@
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme"
             tools:targetApi="jelly_bean" />
+
+
+        <activity
+            android:name=".ViewUploadedVideos"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme"
+            tools:targetApi="jelly_bean" />
+
     </application>
 
 

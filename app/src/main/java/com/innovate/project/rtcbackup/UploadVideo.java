@@ -129,9 +129,11 @@ public class UploadVideo extends AppCompatActivity implements EasyPermissions.Pe
     private void getResultsFromApi() {
         if (!isGooglePlayServicesAvailable()) {
             acquireGooglePlayServices();
-        } else if (mCredential.getSelectedAccountName() == null) {
+        }
+        else if (mCredential.getSelectedAccountName() == null) {
             chooseAccount();
-        } else if (!isDeviceOnline()) {
+        }
+        else if (!isDeviceOnline()) {
             Toast.makeText(UploadVideo.this, "No network connection available.", Toast.LENGTH_SHORT).show();
         } else {
             mTask = (aTask) new aTask(mCredential).execute();
@@ -215,6 +217,11 @@ public class UploadVideo extends AppCompatActivity implements EasyPermissions.Pe
                         getResultsFromApi();
                     }
                 }
+                else {
+                    Log.e(TAG,"Account Button canceled");
+                    finish();
+                }
+
                 break;
             case REQUEST_AUTHORIZATION:
                 if (resultCode == RESULT_OK) {

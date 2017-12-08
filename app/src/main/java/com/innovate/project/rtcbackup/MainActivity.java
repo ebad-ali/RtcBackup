@@ -44,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
     // A button view that is displayed on UI Screen
     AppCompatButton viewSavedVideosButton;
 
+    AppCompatButton viewDriveActionButton;
+
     // A String of Type Uri that contain the path of the file selected when you choose file from file picker
     Uri videoUri;
 
@@ -74,6 +76,9 @@ public class MainActivity extends AppCompatActivity {
     private void setUpUI() {
         viewSavedVideosButton = findViewById(R.id.viewSavedVideosActionButton);
         viewSavedVideosButton.setOnClickListener(viewSavedVideosButtonListener);
+
+        viewDriveActionButton = findViewById(R.id.viewDriveActionButton);
+        viewDriveActionButton.setOnClickListener(viewDriveActionButtonListener);
     }
 
 
@@ -85,8 +90,33 @@ public class MainActivity extends AppCompatActivity {
 
             Log.e("viewSavedVideosButtonListener", "button pressed");
             requestPermission();
+
         }
     };
+
+    // This listener calls viewUploadedDrive Activity  when you clicked on view Saved Drive Button
+    View.OnClickListener viewDriveActionButtonListener = new View.OnClickListener() {
+        @SuppressLint("LongLogTag")
+        @Override
+        public void onClick(View view) {
+
+            Log.e("viewDriveActionButtonListener", "button pressed");
+
+            // If mobile is connected to internet call view Drive activity
+            if(isDeviceOnline())
+            {
+                Intent intent = new Intent(MainActivity.this,ViewUploadedVideos.class);
+                startActivity(intent);
+            }
+
+            //otherwise display snackbar showing no internet connection
+            else {
+                    showSnackBar();
+            }
+
+        }
+    };
+
 
 
     /*
@@ -230,7 +260,6 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(MaterialDialog dialog, DialogAction which) {
 
                         Log.e(TAG, "play video");
-
 
                         //call play video function here and pass the uri to it.
                         watchVideo(uri);

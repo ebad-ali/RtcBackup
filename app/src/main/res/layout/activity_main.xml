@@ -42,4 +42,16 @@
         android:layout_marginBottom="45dp"
         app:srcCompat="@drawable/cloud" />
 
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/viewDriveActionButton"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/viewSavedVideosActionButton"
+        android:layout_centerVertical="true"
+        android:text="@string/view_cloud"
+        android:textColor="@color/white"
+        android:layout_marginTop="15dp"
+        android:textSize="18sp"
+        app:backgroundTint="@color/colorAccent" />
+
 </RelativeLayout>

@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">RtcBackup</string>
     <string name="rtc_backup">Rtc Backup</string>
-    <string name="view_saved_videos">View Saved Videos</string>
+    <string name="view_saved_videos">View/Upload Videos</string>
+    <string name="content_loaded">File contents successfully read.</string>
+    <string name="view_cloud">View Cloud</string>
 
 </resources>
